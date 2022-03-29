@@ -9,14 +9,14 @@
     export CC=wllvm
     export CXX=wllvm++
     # Common compiler flags used in Google FuzzBench. Note that we add "-fsanitize-coverage=no-prune" to ensure a complete CFG intrumentation.
-    export CXXFLAGS=-O2 -fno-omit-frame-pointer -gline-tables-only -fsanitize=address,fuzzer-no-link -fsanitize-coverage=no-prune -fsanitize-address-use-after-scope
+    export CXXFLAGS="-O2 -fno-omit-frame-pointer -gline-tables-only -fsanitize=address,fuzzer-no-link -fsanitize-coverage=no-prune -fsanitize-address-use-after-scope"
     ```
 3. Build harfbuzz with K-Scheduler-based LibFuzzer following Google FuzzBench settings
     ```sh
     rm -rf BUILD
     cp -r SRC BUILD 
     # configure and build harfbuzz
-    cd BUILD && ./autogen.sh && CCLD="$CXX $CXXFLAGS" ./configure --enable-static --disable-shared && make -j -C src fuzzing
+    cd BUILD && ./autogen.sh && CCLD="$CXX $CXXFLAGS" ./configure --enable-static --disable-shared && make -j -C src fuzzing && cd ..
     # build harfbuzz fuzzer wrapper
     $CXX $CXXFLAGS -c -std=c++11 -I BUILD/src/ BUILD/test/fuzzing/hb-fuzzer.cc -o BUILD/test/fuzzing/hb-fuzzer.o 
     # link harfbuzz fuzzer wrapper with LibFuzzer
@@ -27,7 +27,7 @@
     # extract whole-program bitcode 
     extract-bc harfbuzz-1.3.2-fsanitize_fuzzer_kscheduler
     # convert bitcode to llvm ll code
-    clang++ -S -emit-llvm harfbuzz-1.3.2-fsanitize_fuzzer_kscheduler.bc
+    llvm-dis harfbuzz-1.3.2-fsanitize_fuzzer_kscheduler.bc
     # If there exists functions with too long function name, we truncate their name with shorter hash. Becasue function with too long function names will be ignored by llvm opt CFG construction.
     python ./fix_long_fun_name.py harfbuzz-1.3.2-fsanitize_fuzzer_kscheduler.ll
     # create directory for intra-precedural CFG

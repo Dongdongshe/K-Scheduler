@@ -1,6 +1,6 @@
 
 # K-Scheduler: Effective Seed Scheduling for Fuzzing with Graph Centrality Analysis (IEEE S&P'22)
-A generic seed scheduler for fuzzers (LibFuzzer and AFL) and conconlic execution engine (QSYM). Check our [paper](https://arxiv.org/abs/2203.12064) for more details.
+A generic seed scheduler for fuzzers (LibFuzzer and AFL) and concolic execution engine (QSYM). Check our [paper](https://arxiv.org/abs/2203.12064) for more details.
  
 ### Prerequisite
 - Python 3.7
@@ -22,7 +22,7 @@ We use harfbuzz as an example
 We provide 12 programs from Google FuzzBench to reproduce our results, [K-Scheduler/libfuzzer_integration/test_programs](https://github.com/Dongdongshe/K-Scheduler/tree/main/libfuzzer_integration/test_programs) and [K-Scheduler/afl_integration/test_programs](https://github.com/Dongdongshe/K-Scheduler/tree/main/afl_integration/test_programs)
 
 ### Run K-Scheduler on a new program
-Check turtorials at [K-Scheduler/libfuzzer_integration/test_programs](https://github.com/Dongdongshe/K-Scheduler/tree/main/afl_integration/build_example) and [K-Scheduler/afl_integration/test_programs](https://github.com/Dongdongshe/K-Scheduler/tree/main/afl_integration/build_example)
+Check tutorials at [K-Scheduler/libfuzzer_integration/test_programs](https://github.com/Dongdongshe/K-Scheduler/tree/main/afl_integration/build_example) and [K-Scheduler/afl_integration/test_programs](https://github.com/Dongdongshe/K-Scheduler/tree/main/afl_integration/build_example)
 
-### Contant
+### Contact
 Feel free to send me email about K-Scheduler. dongdong at cs.columbia.edu

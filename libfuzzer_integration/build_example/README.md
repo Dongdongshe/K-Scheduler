@@ -1,4 +1,4 @@
-### Build K-Scheduler-based libfuzzer on an example proprgram harfbuzz
+### Build K-Scheduler-based libfuzzer on an example program harfbuzz
 1. Build K-Scheduler-based llvm-11.0.1 following ``K-Scheduler/libfuzzer_integration/llvm_11.0.1/README.md``
 2. Set up environment variable
     ```sh
@@ -22,7 +22,7 @@
     # link harfbuzz fuzzer wrapper with LibFuzzer
     $CXX $CXXFLAGS -std=c++11 -I BUILD/src/ BUILD/test/fuzzing/hb-fuzzer.o BUILD/src/.libs/libharfbuzz-fuzzing.a -fsanitize=fuzzer -lglib-2.0 -o harfbuzz-1.3.2-fsanitize_fuzzer_kscheduler
     ```
-4. Construct inter-precedural CFG for harfbuzz
+4. Construct inter-procedural CFG for harfbuzz
     ```sh
     # extract whole-program bitcode 
     extract-bc harfbuzz-1.3.2-fsanitize_fuzzer_kscheduler
@@ -40,7 +40,7 @@
     # Stitch intra-CFGs into a inter-CFG following caller-callee relationships
     cd .. && python ./gen_graph.py ./harfbuzz-1.3.2-fsanitize_fuzzer_kscheduler_fix.ll cfg_out_harfbuzz
     ```
-5. Start graph anlaysis module 
+5. Start graph analysis module 
     ```sh
     python ./gen_dyn_weight.py
     ```

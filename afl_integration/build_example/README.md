@@ -1,4 +1,4 @@
-### Run K-Scheduler-based afl on an example proprgram harfbuzz
+### Run K-Scheduler-based afl on an example program harfbuzz
 1. Build llvm-11.0.1 following ``K-Scheduler/libfuzzer_integration/llvm_11.0.1/README.md``. You can skip this step if you have already build llvm-11.0.1.
 2. Build K-Scheduler-based afl following ``K-Scheduler/afl_integration/afl-2.52b_kscheduler/README.md``.
 3. Set up environment variable and build afl runtime.
@@ -30,7 +30,7 @@
     # link harfbuzz fuzzer wrapper with afl driver
     $CXX $CXXFLAGS -std=c++11 -I BUILD/src/ BUILD/test/fuzzing/hb-fuzzer.o BUILD/src/.libs/libharfbuzz-fuzzing.a afl_llvm_rt_driver.a -lglib-2.0 -o harfbuzz_afl_asan
     ```
-5. Construct inter-precedural CFG for harfbuzz
+5. Construct inter-procedural CFG for harfbuzz
     ```sh
     # extract whole-program bitcode 
     extract-bc harfbuzz_afl_asan
@@ -48,7 +48,7 @@
     # Stitch intra-CFGs into a inter-CFG following caller-callee relationships
     cd .. && python ./gen_graph.py ./harfbuzz_afl_asan_fix.ll cfg_out_harfbuzz
     ```
-6. Start graph anlaysis module 
+6. Start graph analysis module 
     ```sh
     python ./gen_dyn_weight.py
     ```

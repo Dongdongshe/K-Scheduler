@@ -1,0 +1,74 @@
+2021-02-06  Nick Clifton  <nickc@redhat.com>
+
+	This is the 2.36.1 release.
+
+2021-02-05  Nelson Chu  <nelson.chu@sifive.com>
+
+	* opcode/riscv-opc.h: Removed macros for zb* extensions.
+	* opcode/riscv.h (riscv_insn_class): Removed INSN_CLASS_ZB*.
+
+2021-01-24  Nick Clifton  <nickc@redhat.com>
+
+	This is the 2.36 release.
+
+2021-01-11  Kyrylo Tkachov  <kyrylo.tkachov@arm.com>
+
+	* opcode/aarch64.h (AARCH64_FEATURE_CSRE): Delete.
+	(aarch64_opnd): Delete AARCH64_OPND_CSRE_CSR.
+
+2021-01-09  Nick Clifton  <nickc@redhat.com>
+
+	* 2.36 release branch crated.
+
+2021-01-07  Philipp Tomsich  <prt@gnu.org>
+
+	* opcode/riscv-opc.h: Added MATCH_PAUSE, MASK_PAUSE and DECLARE_INSN
+	for pause hint instruction.
+	* opcode/riscv.h (enum riscv_insn_class): Added INSN_CLASS_ZIHINTPAUSE.
+
+2021-01-07  Claire Xenia Wolf  <claire@symbioticeda.com>
+	    Jim Wilson  <jimw@sifive.com>
+	    Andrew Waterman  <andrew@sifive.com>
+	    Maxim Blinov  <maxim.blinov@embecosm.com>
+	    Kito Cheng  <kito.cheng@sifive.com>
+	    Nelson Chu  <nelson.chu@sifive.com>
+
+	* opcode/riscv-opc.h: Added MASK/MATCH/DECLARE_INSN for ZBA/ZBB/ZBC.
+	* opcode/riscv.h (riscv_insn_class): Added INSN_CLASS_ZB*.
+	(enum riscv_isa_spec_class): Added ISA_SPEC_CLASS_DRAFT for the
+	frozen extensions.
+
+2021-01-05  Nick Alcock  <nick.alcock@oracle.com>
+
+	* ctf-api.h (CTF_MN_RECURSE): New.
+	(ctf_member_next): Add flags argument.
+
+2021-01-05  Nick Alcock  <nick.alcock@oracle.com>
+
+	* ctf-api.h (ECTF_INCOMPLETE): New.
+	(ECTF_NERR): Adjust.
+
+2021-01-01  Nicolas Boulenguez  <nicolas@debian.org>
+
+	* coff/internal.h: Correct comment spelling.
+	* coff/sym.h: Likewise.
+	* opcode/aarch64.h: Likewise.
+
+2021-01-01  Alan Modra  <amodra@gmail.com>
+
+	Update year range in copyright notice of all files.
+
+For older changes see ChangeLog-2020
+
+Copyright (C) 2021 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Local Variables:
+mode: change-log
+left-margin: 8
+fill-column: 74
+version-control: never
+End:

@@ -1,0 +1,368 @@
+2021-02-06  Nick Clifton  <nickc@redhat.com>
+
+	(development): Set to true.
+
+2021-02-06  Nick Clifton  <nickc@redhat.com>
+
+	This is the 2.36.1 release.
+	* version.m4: Set to 2.36.1
+	* development.sh (development): Set to false.
+	* configure: Regenerate.
+	* po/bfd.pot: Regenerate.
+
+2021-02-05  Nelson Chu  <nelson.chu@sifive.com>
+
+	* elfxx-riscv.c (riscv_parse_prefixed_ext): Removed zb*.
+
+2021-02-04  Alan Modra  <amodra@gmail.com>
+
+	PR 27311
+	* elflink.c (elf_link_add_object_symbols): Don't pull in as-needed
+	libraries for IR references on pass over libraries after LTO
+	recompilation.
+
+2021-02-03  Alan Modra  <amodra@gmail.com>
+
+	PR 27311
+	* elflink.c (elf_link_add_object_symbols): Don't pull in as-needed
+	libraries when H is an indirect symbol after calling
+	_bfd_elf_add_default_symbol.
+
+2021-01-28  Alan Modra  <amodra@gmail.com>
+
+	PR 27259
+	* elflink.c (_bfd_elf_gc_mark_extra_sections): Use linker_mark to
+	prevent endless looping of linked-to sections.
+
+2021-01-29  Alan Modra  <amodra@gmail.com>
+
+	PR 27271
+	* elflink.c (bfd_elf_link_record_dynamic_symbol): Don't segfault
+	on symbols defined in absolute or other special sections.
+
+2021-01-26  Alan Modra  <amodra@gmail.com>
+
+	* elf32-ft32.c (ft32_reloc_type_lookup): Don't miss ft32_reloc_map[0].
+
+2021-01-24  H.J. Lu  <hongjiu.lu@intel.com>
+
+	PR binutils/27231
+	* dwarf2.c (read_rnglists): Ignore empty range when parsing line
+	number tables.
+
+2021-01-24  Nick Clifton  <nickc@redhat.com>
+
+	* version.m4: Set to 2.36.0.
+	* development.sh (development): Set to true.
+	* configure: Regenerate.
+	* po/bfd.pot: Regenerate.
+
+2021-01-24  Nick Clifton  <nickc@redhat.com>
+
+	This is the 2.36 release.
+	* version.m4: Set to 2.36.
+	* development.sh (development): Set to false.
+	(experimental): Set to false.
+	* configure: Regenerate.
+	* po/bfd.pot: Regenerate.
+
+2021-01-23  H.J. Lu  <hongjiu.lu@intel.com>
+
+	PR binutils/27231
+	* dwarf2.c (read_rnglists): Advance rngs_ptr after
+	_bfd_safe_read_leb128 when parsing DW_RLE_offset_pair.
+
+2021-01-20  Alan Modra  <amodra@gmail.com>
+
+	* elf64-ppc.c (ppc64_elf_get_synthetic_symtab): Don't assume
+	section symbols are present.
+
+2021-01-18  H.J. Lu  <hongjiu.lu@intel.com>
+
+	PR ld/27193
+	* elflink.c (elf_create_symbuf): Also ignore section symbols.
+
+2021-01-18  H.J. Lu  <hongjiu.lu@intel.com>
+
+	PR ld/23169
+	* elfxx-x86.c (_bfd_x86_elf_link_fixup_ifunc_symbol): Don't
+	check pointer_equality_needed.
+
+2021-01-14  H.J. Lu  <hongjiu.lu@intel.com>
+
+	PR ld/26688
+	* elf32-bfin.c (bfinfdpic_relocate_section): Skip non SEC_ALLOC
+	section for R_BFIN_FUNCDESC.
+
+2021-01-14  Nick Clifton  <nickc@redhat.com>
+
+	* elf.c (elfcore_grok_win32pstatus): Check for a note type of 0.
+
+2021-01-12  H.J. Lu  <hongjiu.lu@intel.com>
+
+	PR ld/27171
+	* reloc.c (bfd_perform_relocation): Adjust R_AMD64_DIR64 and
+	R_AMD64_DIR32 relocations for PE/x86-64 inputs.
+
+2021-01-11  Nick Clifton  <nickc@redhat.com>
+
+	* po/fr.po: Updated French translation.
+	* po/pt.po: Updated Portuguese translation.
+	* po/sr.po: Updated Serbian translation.
+	* po/uk.po: Updated Ukranian translation.
+
+2021-01-09  H.J. Lu  <hongjiu.lu@intel.com>
+
+	PR ld/27166
+	* elfxx-x86.c (_bfd_x86_elf_merge_gnu_properties): Handle
+	-z lam-u48 and -z lam-u57.
+
+2021-01-09  Nick Clifton  <nickc@redhat.com>
+
+	* version.m4: Update release number to 2.35.90.
+	* configure: Regenerate.
+	* po/bfd.pot: Regenerate.
+
+2021-01-09  Nick Clifton  <nickc@redhat.com>
+
+	* 2.36 release branch crated.
+
+2021-01-08  H.J. Lu  <hongjiu.lu@intel.com>
+
+	* elfxx-x86.c (_bfd_x86_elf_link_setup_gnu_properties): Also set
+	LAM_U57 when setting LAM_U48.
+
+2021-01-08  H.J. Lu  <hongjiu.lu@intel.com>
+
+	PR ld/26256
+	PR ld/27160
+	* elflink.c (elf_fixup_link_order): Verify that fixing up
+	SHF_LINK_ORDER doesn't increase the output section size.
+
+2021-01-09  Alan Modra  <amodra@gmail.com>
+
+	* configure: Regenerate.
+
+2021-01-07  Samuel Thibault  <samuel.thibault@gnu.org>
+
+	* configure: Regenerate.
+
+2021-01-07  H.J. Lu  <hongjiu.lu@intel.com>
+
+	PR 27109
+	* aix386-core.c (core_aix386_vec): Initialize
+	keep_unused_section_symbol to TARGET_KEEP_UNUSED_SECTION_SYMBOLS.
+	* aout-target.h (MY (vec)): Likewise.
+	* binary.c (binary_vec): Likewise.
+	* cisco-core.c (core_cisco_be_vec): Likewise.
+	(core_cisco_le_vec): Likewise.
+	* coff-alpha.c (alpha_ecoff_le_vec): Likewise.
+	* coff-i386.c (TARGET_SYM): Likewise.
+	(TARGET_SYM_BIG): Likewise.
+	* coff-ia64.c (TARGET_SYM): Likewise.
+	* coff-mips.c (mips_ecoff_le_vec): Likewise.
+	(mips_ecoff_be_vec): Likewise.
+	(mips_ecoff_bele_vec): Likewise.
+	* coff-rs6000.c (rs6000_xcoff_vec): Likewise.
+	(powerpc_xcoff_vec): Likewise.
+	* coff-sh.c (sh_coff_small_vec): Likewise.
+	(sh_coff_small_le_vec): Likewise.
+	* coff-tic30.c (tic30_coff_vec): Likewise.
+	* coff-tic54x.c (tic54x_coff0_vec): Likewise.
+	(tic54x_coff0_beh_vec): Likewise.
+	(tic54x_coff1_vec): Likewise.
+	(tic54x_coff1_beh_vec): Likewise.
+	(tic54x_coff2_vec): Likewise.
+	(tic54x_coff2_beh_vec): Likewise.
+	* coff-x86_64.c (TARGET_SYM): Likewise.
+	(TARGET_SYM_BIG): Likewise.
+	* coff64-rs6000.c (rs6000_xcoff64_vec): Likewise.
+	(rs6000_xcoff64_aix_vec): Likewise.
+	* coffcode.h (CREATE_BIG_COFF_TARGET_VEC): Likewise.
+	(CREATE_BIGHDR_COFF_TARGET_VEC): Likewise.
+	(CREATE_LITTLE_COFF_TARGET_VEC): Likewise.
+	* elfxx-target.h (TARGET_BIG_SYM): Likewise.
+	(TARGET_LITTLE_SYM): Likewise.
+	* hppabsd-core.c (core_hppabsd_vec): Likewise.
+	* hpux-core.c (core_hpux_vec): Likewise.
+	* i386msdos.c (i386_msdos_vec): Likewise.
+	* ihex.c (ihex_vec): Likewise.
+	* irix-core.c (core_irix_vec): Likewise.
+	* mach-o-target.c (TARGET_NAME): Likewise.
+	* mmo.c (mmix_mmo_vec): Likewise.
+	* netbsd-core.c (core_netbsd_vec): Likewise.
+	* osf-core.c (core_osf_vec): Likewise.
+	* pdp11.c (MY (vec)): Likewise.
+	* pef.c (pef_vec): Likewise.
+	(pef_xlib_vec): Likewise.
+	* plugin.c (plugin_vec): Likewise.
+	* ppcboot.c (powerpc_boot_vec): Likewise.
+	* ptrace-core.c (core_ptrace_vec): Likewise.
+	* sco5-core.c (core_sco5_vec): Likewise.
+	* som.c (hppa_som_vec): Likewise.
+	* srec.c (srec_vec): Likewise.
+	(symbolsrec_vec): Likewise.
+	* tekhex.c (tekhex_vec): Likewise.
+	* trad-core.c (core_trad_vec): Likewise.
+	* verilog.c (verilog_vec): Likewise.
+	* vms-alpha.c (alpha_vms_vec): Likewise.
+	* vms-lib.c (alpha_vms_lib_txt_vec): Likewise.
+	* wasm-module.c (wasm_vec): Likewise.
+	* xsym.c (sym_vec): Likewise.
+	* elf.c (ignore_section_sym): Return TRUE if BSF_SECTION_SYM_USED
+	isn't set.
+	(elf_map_symbols): Don't include ignored section symbols.
+	* elfcode.h (elf_slurp_symbol_table): Also set
+	BSF_SECTION_SYM_USED on STT_SECTION symbols.
+	* elflink.c (bfd_elf_final_link): Generated section symbols only
+	when emitting relocations or reqired.
+	* elfxx-x86.h (TARGET_KEEP_UNUSED_SECTION_SYMBOLS): New.
+	* syms.c (BSF_SECTION_SYM_USED): New.
+	* targets.c (TARGET_KEEP_UNUSED_SECTION_SYMBOLS): New.
+	(bfd_target): Add keep_unused_section_symbols.
+	(bfd_keep_unused_section_symbols): New.
+	* bfd-in2.h: Regenerated.
+
+2021-01-07  Nick Clifton  <nickc@redhat.com>
+
+	PR 25713
+	* bfdio.c (_bfd_real_fopen): For Win32 convert relative paths to
+	absolute paths and check to see if they are longer than MAX_PATH.
+
+2021-01-07  Philipp Tomsich  <prt@gnu.org>
+
+	* elfxx-riscv.c (riscv_std_z_ext_strtab): Added zihintpause.
+
+2021-01-07  Claire Xenia Wolf  <claire@symbioticeda.com>
+	    Jim Wilson  <jimw@sifive.com>
+	    Andrew Waterman  <andrew@sifive.com>
+	    Maxim Blinov  <maxim.blinov@embecosm.com>
+	    Kito Cheng  <kito.cheng@sifive.com>
+	    Nelson Chu  <nelson.chu@sifive.com>
+
+	* elfxx-riscv.c (riscv_std_z_ext_strtab): Added zba, zbb and zbc.
+
+2021-01-06  H.J. Lu  <hongjiu.lu@intel.com>
+
+	* elf32-bfin.c (bfin_check_relocs): Check bfd_link_hash_indirect.
+	(bfinfdpic_check_relocs): Likewise.
+
+2021-01-06  Alan Modra  <amodra@gmail.com>
+
+	* elf32-score.c (s3_bfd_score_info_to_howto): Report an error
+	on unknown r_type.
+	* elf32-score7.c (s7_bfd_score_info_to_howto): Likewise.
+
+2021-01-06  Alan Modra  <amodra@gmail.com>
+
+	* config.bfd (sparc-*-solaris2*): Add sparc_elf32_vec.
+	(sparc64-*-solaris2*): Add sparc_elf64_vec and
+	sparc_elf32_vec.
+
+2021-01-06  Marcus Comstedt  <marcus@mc.pp.se>
+
+	* config.bfd: Added targets riscv64be*-*-*, riscv32be*-*-* and
+	riscvbe*-*-*.  Also added riscv_elf[32|64]_be_vec.
+	* configure.ac: Handle riscv_elf[32|64]_be_vec.
+	* configure: Regenerate.
+	* elfnn-riscv.c: Include <limits.h> and define CHAR_BIT for
+	riscv_is_insn_reloc.
+	(riscv_get_insn): RISC-V instructions are always little endian, but
+	bfd_get may be used for big-endian, so add new riscv_get_insn to handle
+	the insturctions.
+	(riscv_put_insn): Likewsie.
+	(riscv_is_insn_reloc): Check if we are relocaing an instruction.
+	(perform_relocation): Call riscv_is_insn_reloc to decide if we should
+	use riscv_[get|put]_insn or bfd_[get|put].
+	(riscv_zero_pcrel_hi_reloc): Use riscv_[get|put]_insn, bfd_[get|put]l32
+	or bfd_[get|put]l16 for code.
+	(riscv_elf_relocate_section): Likewise.
+	(riscv_elf_finish_dynamic_symbol): Likewise.
+	(riscv_elf_finish_dynamic_sections): Likewise.
+	(_bfd_riscv_relax_call): Likewise.
+	(_bfd_riscv_relax_lui): Likewise.
+	(_bfd_riscv_relax_align): Likewise.
+	(_bfd_riscv_relax_pc): Likewise.
+	(riscv_elf_object_p): Handled for big endian.
+	(TARGET_BIG_SYM, TARGET_BIG_NAME): Defined.
+	* targets.c: Add riscv_elf[32|64]_be_vec.
+	(_bfd_target_vector): Likewise.
+
+2021-01-05  Alan Modra  <amodra@gmail.com>
+
+	* elflink.c (bfd_elf_link_record_dynamic_symbol): Handle no_export
+	for relocatable executable.
+
+2021-01-05  Alan Modra  <amodra@gmail.com>
+
+	* vms-alpha.c (_bfd_vms_slurp_egsd): Read flags after size check.
+
+2021-01-05  Nelson Chu  <nelson.chu@sifive.com>
+
+	* elfnn-riscv.c (allocate_dynrelocs): When we are generating pde,
+	make sure gp symbol is output as a dynamic symbol.
+
+2021-01-04  H.J. Lu  <hongjiu.lu@intel.com>
+
+	PR ld/26256
+	* elflink.c (compare_link_order): Place unordered sections before
+	ordered sections.
+	(elf_fixup_link_order): Add a link info argument.  Allow mixed
+	ordered and unordered input sections for non-relocatable link.
+	Sort the consecutive bfd_indirect_link_order sections with the
+	same pattern.  Change the offsets of the bfd_indirect_link_order
+	sections only.
+	(bfd_elf_final_link): Pass info to elf_fixup_link_order.
+	* section.c (bfd_section): Add pattern.
+	(BFD_FAKE_SECTION): Initialize pattern to NULL.
+	* bfd-in2.h: Regenerated.
+
+2021-01-04  Alexander Fedotov  <alfedotov@gmail.com>
+
+	* elf32-arm.c (elf32_arm_print_private_bfd_data): Prefix hex value
+	of private flags with 0x.
+	* elfnn-aarch64.c (elfNN_aarch64_print_private_bfd_data): Likewise.
+
+2021-01-04  Alan Modra  <amodra@gmail.com>
+
+	PR 26822
+	* elflink.c (elf_link_input_bfd): Use the file base name in
+	linker generated STT_FILE symbols.
+
+2021-01-04  Nelson Chu  <nelson.chu@sifive.com>
+
+	* elfxx-riscv.c (riscv_compare_subsets): Removed static.
+	* elfxx-riscv.h: Add declaration.
+	* elfnn-riscv.c (riscv_merge_multi_letter_ext): Use
+	riscv_compare_subsets to check the orders.
+	(riscv_skip_prefix): Removed.
+	(riscv_prefix_cmp): Removed.
+
+2021-01-04  Alan Modra  <amodra@gmail.com>
+
+	PR 26741
+	* elfxx-riscv.c (riscv_parse_prefixed_ext): Free subset after
+	calculating subset version length.
+
+2021-01-01  Nicolas Boulenguez  <nicolas@debian.org>
+
+	* xcofflink.c: Correct spelling in comments.
+
+2021-01-01  Alan Modra  <amodra@gmail.com>
+
+	Update year range in copyright notice of all files.
+
+For older changes see ChangeLog-2020
+
+Copyright (C) 2021 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Local Variables:
+mode: change-log
+left-margin: 8
+fill-column: 74
+version-control: never
+End:

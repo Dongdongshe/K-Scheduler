@@ -1,0 +1,229 @@
+2021-01-24  Nick Clifton  <nickc@redhat.com>
+
+	This is the 2.36 release.
+
+2021-01-19  Nick Alcock  <nick.alcock@oracle.com>
+
+	* ctf-create.c (membadd): Transform ""-named members into
+	NULL-named ones.
+	* testsuite/libctf-regression/type-add-unnamed-struct*: New test.
+
+2021-01-19  Nick Alcock  <nick.alcock@oracle.com>
+
+	* ctf-lookup.c (ctf_lookup_by_name_internal): Do not return the
+	base type if looking up a nonexistent pointer type.
+	* testsuite/libctf-regression/pptrtab*: Test it.
+
+2021-01-09  Nick Clifton  <nickc@redhat.com>
+
+	* 2.36 release branch crated.
+
+2021-01-09  Alan Modra  <amodra@gmail.com>
+
+	* configure: Regenerate.
+
+2021-01-07  Samuel Thibault  <samuel.thibault@gnu.org>
+
+	* configure: Regenerate.
+
+2021-01-05  Nick Alcock  <nick.alcock@oracle.com>
+
+	* testsuite/libctf-lookup/struct-iteration.c (main):
+	ctf_member_count returns an int.
+
+2021-01-05  Nick Alcock  <nick.alcock@oracle.com>
+
+	* Makefile.am (BASEDIR): New.
+	(BFDDIR): Likewise.
+	(check-DEJAGNU): Add development.exp to prerequisites.
+	(development.exp): New.
+	(CONFIG_STATUS_DEPENDENCIES): New.
+	(EXTRA_DEJAGNU_SITE_CONFIG): Likewise.
+	(DISTCLEANFILES): Likewise.
+	* Makefile.in: Regenerated.
+	* testsuite/lib/ctf-lib.exp (check_ctf_available): Return boolean.
+	* testsuite/libctf-lookup/lookup.exp: Call check_ctf_available.
+	* testsuite/libctf-regression/regression.exp: Likewise.
+
+2021-01-05  Nick Alcock  <nick.alcock@oracle.com>
+
+	* ctf-types.c (ctf_type_aname): Print forwards to unions and enums
+	properly.
+
+2021-01-05  Nick Alcock  <nick.alcock@oracle.com>
+
+	* ctf-impl.h (ctf_dict_t) <ctf_pptrtab>: New.
+	<ctf_pptrtab_len>: New.
+	<ctf_pptrtab_typemax>: New.
+	* ctf-create.c (ctf_serialize): Update accordingly.
+	(ctf_add_reftype): Note that we don't need to update pptrtab here,
+	despite updating ptrtab.
+	* ctf-open.c (ctf_dict_close): Destroy the pptrtab.
+	(ctf_import): Likewise.
+	(ctf_import_unref): Likewise.
+	* ctf-lookup.c (grow_pptrtab): New.
+	(refresh_pptrtab): New, update a pptrtab.
+	(ctf_lookup_by_name): Turn into a wrapper around (and rename to)...
+	(ctf_lookup_by_name_internal): ... this: construct the pptrtab, and
+	use it in addition to the parent's ptrtab when parent dicts are
+	searched.
+	* testsuite/libctf-regression/regression.exp: New testsuite for
+	regression tests.
+	* testsuite/libctf-regression/pptrtab*: New test.
+	* testsuite/libctf-writable/writable.exp: New testsuite for tests of
+	writable CTF dicts.
+	* testsuite/libctf-writable/pptrtab*: New test.
+
+2021-01-05  Nick Alcock  <nick.alcock@oracle.com>
+
+	* ctf-archive.c (ctf_archive_iter): Remove outdated comment.
+
+2021-01-05  Nick Alcock  <nick.alcock@oracle.com>
+
+	* ctf-impl.h (struct ctf_next) <u.ctn_next>: Move to...
+	<ctn_next>: ... here.
+	* ctf-util.c (ctf_next_destroy): Unconditionally destroy it.
+	* ctf-lookup.c (ctf_symbol_next): Adjust accordingly.
+	* ctf-types.c (ctf_member_iter): Reimplement in terms of...
+	(ctf_member_next): ... this.  Support recursive unnamed member
+	iteration (off by default).
+	(ctf_member_info): Look up members in unnamed sub-structs.
+	* ctf-dedup.c (ctf_dedup_rhash_type): Adjust ctf_member_next call.
+	(ctf_dedup_emit_struct_members): Likewise.
+	* testsuite/libctf-lookup/struct-iteration-ctf.c: Test empty unnamed
+	members, and a normal member after the end.
+	* testsuite/libctf-lookup/struct-iteration.c: Verify that
+	ctf_member_count is consistent with the number of successful returns
+	from a non-recursive ctf_member_next.
+	* testsuite/libctf-lookup/struct-iteration-*: New, test iteration
+	over struct members.
+	* testsuite/libctf-lookup/struct-lookup.c: New test.
+	* testsuite/libctf-lookup/struct-lookup.lk: New test.
+
+2021-01-05  Nick Alcock  <nick.alcock@oracle.com>
+
+	* ctf-link.c (ctf_link_warn_outdated_inputs): New.
+	(ctf_link_write): Call it.
+
+2021-01-05  Nick Alcock  <nick.alcock@oracle.com>
+
+	* testsuite/libctf-lookup/enum-symbol.lk: New symbol-lookup test.
+	* testsuite/libctf-lookup/enum-symbol-ctf.c: New CTF input.
+	* testsuite/libctf-lookup/enum-symbol.c: New lookup test.
+
+2021-01-05  Nick Alcock  <nick.alcock@oracle.com>
+
+	* Makefile.am (EXPECT): New.
+	(RUNTEST): Likewise.
+	(RUNTESTFLAGS): Likewise.
+	(CC_FOR_TARGET): Likewise.
+	(check-DEJAGNU): Likewise.
+	(AUTOMAKE_OPTIONS): Add dejagnu.
+	* Makefile.in: Regenerated.
+	* testsuite/config/default.exp: New.
+	* testsuite/lib/ctf-lib.exp: Likewise.
+	* testsuite/libctf-lookup/enum.lk: New test.
+	* testsuite/libctf-lookup/enum-ctf.c: New CTF input.
+	* testsuite/libctf-lookup/enum.c: New lookup test.
+	* testsuite/libctf-lookup/ambiguous-struct*.c: New test.
+	* testsuite/libctf-lookup/lookup.exp: New.
+
+2021-01-05  Nick Alcock  <nick.alcock@oracle.com>
+
+	* configure.ac (BFD_LIBADD): Remove.
+	(BFD_DEPENDENCIES): Likewise. Remove associated cases.
+	(SHARED_LIBADD): Rename to...
+	(CTF_LIBADD): ... this.  Stick in a suitable libiberty even when
+	linking statically.
+	* Makefile.am (libctf_nobfd_la_LIBADD): Adjust accordingly.
+	libctf uses libintl.
+	(libctf_la_LIBADD): Reference libbfd.la directly, not via
+	BFD_LIBADD.
+	(libctf_la_DEPENDENCIES): Remove.
+	* Makefile.in: Regenerate.
+	* configure: Likewise.
+
+2021-01-05  Nick Alcock  <nick.alcock@oracle.com>
+
+	* ctf-decl.c (ctf_decl_push): Exclude slices from the decl stack.
+	* ctf-types.c (ctf_type_aname): No longer deal with slices here.
+	* ctf-dump.c (ctf_dump_membstate_t) <cdm_toplevel_indent>: Constify.
+	(CTF_FT_REFS): New.
+	(CTF_FT_BITFIELD): Likewise.
+	(CTF_FT_ID): Likewise.
+	(ctf_dump_member): Do not do indentation here. Migrate the
+	type-printing parts of this into...
+	(ctf_dump_format_type): ... here, to be shared by all type printers.
+	Get the errno value for non-representable types right.  Do not print
+	bitfield info for non-bitfields.  Improve the format and indentation
+	of other type output.  Shuffle spacing around to make all indentation
+	either 'width of column' or 4 chars.
+	(ctf_dump_label): Pass CTF_FT_REFS to ctf_dump_format_type.
+	(ctf_dump_objts): Likewise.  Spacing shuffle.
+	(ctf_dump_var): Likewise.
+	(type_hex_digits): Migrate down in the file, to above its new user.
+	(ctf_dump_type): Indent here instead.  Pass CTF_FT_REFS to
+	ctf_dump_format_type. Don't trim off excess linefeeds now we no
+	longer generate them.  Dump enumerated types.
+
+2021-01-05  Nick Alcock  <nick.alcock@oracle.com>
+
+	* ctf-types.c (ctf_type_resolve): Improve comment.
+	(ctf_type_size): Yield ECTF_INCOMPLETE when applied to forwards.
+	Emit errors into the right dict.
+	(ctf_type_align): Likewise.
+	* ctf-create.c (ctf_add_member_offset): Yield ECTF_INCOMPLETE
+	when adding a member without explicit offset when this member, or
+	the previous member, is incomplete.
+	* ctf-dump.c (ctf_dump_format_type): Do not try to print the size of
+	forwards.
+	(ctf_dump_member): Do not try to print their alignment.
+
+2021-01-05  Nick Alcock  <nick.alcock@oracle.com>
+
+	* ctf-dump.c (ctf_dump_objts): Dump by calling ctf_dump_format_type.
+	(ctf_dump_format_type): Don't emit the size for function objects.
+	Dump the element type of arrays like we dump the pointed-to type of
+	pointers, etc.
+
+2021-01-05  Nick Alcock  <nick.alcock@oracle.com>
+
+	* ctf-dump.c (ctf_dump_format_type): Add 0x to hex type IDs.
+	(ctf_dump_header): Add 0x to the hex magic number.
+	(ctf_dump_str): Add 0x to the hex string offsets.
+	(ctf_dump_membstate_t) <cdm_toplevel_indent>: New.
+	(ctf_dump_type): Adjust.  Free it when we're done.
+	(type_hex_digits): New.
+	(ctf_dump_member): Align output depending on the width of the type
+	ID being generated.  Use printf padding, not a loop, to generate
+	indentation.
+
+2021-01-05  Nick Alcock  <nick.alcock@oracle.com>
+
+	* ctf-decl.c (ctf_decl_push): Don't print array decls backwards.
+
+2021-01-04  Nicolas Boulenguez  <nicolas@debian.org>
+
+	PR 27117
+	* configure.ac: Make AC_CONFIG_MACRO_DIR consistent with
+	ACLOCAL_AMFLAGS -I dirs.
+	* configure: Regenerate.
+
+2021-01-01  Alan Modra  <amodra@gmail.com>
+
+	Update year range in copyright notice of all files.
+
+For older changes see ChangeLog-2020
+
+Copyright (C) 2021 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Local Variables:
+mode: change-log
+left-margin: 8
+fill-column: 74
+version-control: never
+End:

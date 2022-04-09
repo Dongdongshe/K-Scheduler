@@ -1,0 +1,132 @@
+2021-02-06  Nick Clifton  <nickc@redhat.com>
+
+	This is the 2.36.1 release.
+	* configure: Regenerate.
+	* po/opcodes.pot: Regenerate.
+
+2021-02-05  Nelson Chu  <nelson.chu@sifive.com>
+
+	* riscv-opc.c (MASK_RVB_IMM): Removed.
+	(riscv_opcodes): Removed zb* instructions.
+	(riscv_ext_version_table): Removed versions for zb*.
+
+2021-01-26  Alan Modra  <amodra@gmail.com>
+
+	* i386-gen.c (parse_template): Ensure entire template_instance
+	is initialised.
+
+2021-01-24  Nick Clifton  <nickc@redhat.com>
+
+	* configure: Regenerate.
+	* po/opercodes.pot: Regenerate.
+
+2021-01-24  Nick Clifton  <nickc@redhat.com>
+
+	This is the 2.36 release.
+	* configure: Regenerate.
+	* po/opercodes.pot: Regenerate.
+
+2021-01-12  Nick Clifton  <nickc@redhat.com>
+
+	* po/sr.po: Updated Serbian translation.
+
+2021-01-11  Kyrylo Tkachov  <kyrylo.tkachov@arm.com>
+
+	* aarch64-asm-2.c: Regenerate.
+	* aarch64-dis-2.c: Likewise.
+	* aarch64-opc-2.c: Likewise.
+	* aarch64-opc.c (aarch64_print_operand):
+	Delete handling of AARCH64_OPND_CSRE_CSR.
+	* aarch64-tbl.h (aarch64_feature_csre): Delete.
+	(CSRE): Likewise.
+	(_CSRE_INSN): Likewise.
+	(aarch64_opcode_table): Delete csr.
+
+2021-01-11  Nick Clifton  <nickc@redhat.com>
+
+	* po/de.po: Updated German translation.
+	* po/fr.po: Updated French translation.
+	* po/pt_BR.po: Updated Brazilian Portuguese translation.
+	* po/sv.po: Updated Swedish translation.
+	* po/uk.po: Updated Ukranian translation.
+
+2021-01-09  Nick Clifton  <nickc@redhat.com>
+
+	* configure: Regenerate.
+	* po/opcodes.pot: Regenerate.
+
+2021-01-09  Nick Clifton  <nickc@redhat.com>
+
+	* 2.36 release branch crated.
+
+2021-01-08  Peter Bergner  <bergner@linux.ibm.com>
+
+	* ppc-opc.c (insert_dw, (extract_dw): New functions.
+	(DW, (XRC_MASK): Define.
+	(powerpc_opcodes) <hashchk, hashchkp, hashst, haststp>: New mnemonics.
+
+2021-01-09  Alan Modra  <amodra@gmail.com>
+
+	* configure: Regenerate.
+
+2021-01-08  Nick Clifton  <nickc@redhat.com>
+
+	* po/sv.po: Updated Swedish translation.
+
+2021-01-08  Nick Clifton  <nickc@redhat.com>
+
+	PR 27129
+	* aarch64-dis.c (determine_disassembling_preference): Move call to
+	aarch64_match_operands_constraint outside of the assertion.
+	* aarch64-asm.c (aarch64_ins_limm_1): Remove call to assert.
+	Replace with a return of FALSE.
+
+	PR 27139
+	* aarch64-opc.c (aarch64_sys_regs): Treat id_aa64mmfr2_el1 as a
+	core system register.
+
+2021-01-07  Samuel Thibault  <samuel.thibault@gnu.org>
+
+	* configure: Regenerate.
+
+2021-01-07  Nick Clifton  <nickc@redhat.com>
+
+	* po/fr.po: Updated French translation.
+
+2021-01-07  Fredrik Noring  <noring@nocrew.org>
+
+	* m68k-opc.c (chkl): Change minimum architecture requirement to
+	m68020.
+
+2021-01-07  Philipp Tomsich  <prt@gnu.org>
+
+	* riscv-opc.c (riscv_opcodes): Add pause hint instruction.
+
+2021-01-07  Claire Xenia Wolf  <claire@symbioticeda.com>
+	    Jim Wilson  <jimw@sifive.com>
+	    Andrew Waterman  <andrew@sifive.com>
+	    Maxim Blinov  <maxim.blinov@embecosm.com>
+	    Kito Cheng  <kito.cheng@sifive.com>
+	    Nelson Chu  <nelson.chu@sifive.com>
+
+	* riscv-opc.c (riscv_opcodes): Add ZBA/ZBB/ZBC instructions.
+	(MASK_RVB_IMM): Used for rev8 and orc.b encoding.
+
+2021-01-01  Alan Modra  <amodra@gmail.com>
+
+	Update year range in copyright notice of all files.
+
+For older changes see ChangeLog-2020
+
+Copyright (C) 2021 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Local Variables:
+mode: change-log
+left-margin: 8
+fill-column: 74
+version-control: never
+End:

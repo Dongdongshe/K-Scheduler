@@ -1,0 +1,98 @@
+2021-02-06  Nick Clifton  <nickc@redhat.com>
+
+	This is the 2.36.1 release.
+	* configure: Regenerate.
+	* po/binutils.pot: Regenerate.
+
+2021-01-26  Frederic Cambus  <fred@statdns.com>
+
+	* objcopy.c (copy_main): Fix a double free happening when both
+	--localize-symbols and --globalize-symbols options are invoked
+	together.
+
+2021-01-24  Nick Clifton  <nickc@redhat.com>
+
+	* configure: Regenerate.
+
+2021-01-24  Nick Clifton  <nickc@redhat.com>
+
+	This is the 2.36 release.
+	* configure: Regenerate.
+
+2021-01-14  Nick Clifton  <nickc@redhat.com>
+
+	* po/sv.po: Updated Swedish translation.
+
+2021-01-12  Nick Clifton  <nickc@redhat.com>
+
+	* po/fr.po: Updated French translation.
+
+2021-01-11  Nick Clifton  <nickc@redhat.com>
+
+	* po/pt.po: Updated Portuguese translation.
+	* po/sr.po: Updated Serbian translation.
+	* po/uk.po: Updated Ukranian translation.
+
+2021-01-09  Nick Clifton  <nickc@redhat.com>
+
+	* configure: Regenerate.
+	* po/binutils.pot: Regenerate.
+
+2021-01-09  Nick Clifton  <nickc@redhat.com>
+
+	* 2.36 release branch crated.
+
+2021-01-09  Alan Modra  <amodra@gmail.com>
+
+	* configure: Regenerate.
+
+2021-01-07  Samuel Thibault  <samuel.thibault@gnu.org>
+
+	* configure: Regenerate.
+
+2021-01-07  H.J. Lu  <hongjiu.lu@intel.com>
+
+	PR 27109
+	* objcopy.c (copy_object): Handle section symbols for
+	non-relocatable inputs.
+	* testsuite/binutils-all/readelf.exp (readelf_test): Check
+	is_elf_unused_section_symbols.
+	* testsuite/binutils-all/readelf.s-64: Updated.
+	* testsuite/binutils-all/readelf.ss: Likewise.
+	* testsuite/binutils-all/readelf.ss-64: Likewise.
+	* testsuite/binutils-all/readelf.s-64-unused: New file.
+	* testsuite/binutils-all/readelf.ss-64-unused: Likewise.
+	* testsuite/binutils-all/readelf.ss-unused: Likewise.
+	* testsuite/lib/binutils-common.exp
+	(is_elf_unused_section_symbols): New proc.
+
+2021-01-06  Reuben Thomas  <rrt@sc3d.org>
+
+	* binutils/readelf.c: Correct grammar in comment.
+
+2021-01-01  Nicolas Boulenguez  <nicolas@debian.org>
+
+	* coffgrok.c (do_type): Correct spelling of auxiliary in errors.
+	* doc/binutils.texi: Correct grammar.
+	* readelf.c (process_version_sections): Correct spelling of auxiliary
+	in warning.
+	* testsuite/binutils-all/vax/objdump.exp: Comment grammar fix.
+
+2021-01-01  Alan Modra  <amodra@gmail.com>
+
+	Update year range in copyright notice of all files.
+
+For older changes see ChangeLog-2020
+
+Copyright (C) 2021 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Local Variables:
+mode: change-log
+left-margin: 8
+fill-column: 74
+version-control: never
+End:

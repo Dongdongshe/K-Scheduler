@@ -19,10 +19,10 @@ We use harfbuzz as an example
     python3 ./gen_dyn_weight.py
     ```
 ### Tested programs
-We provide 12 programs from Google FuzzBench to reproduce our results, [K-Scheduler/libfuzzer_integration/test_programs](https://github.com/Dongdongshe/K-Scheduler/tree/main/libfuzzer_integration/test_programs) and [K-Scheduler/afl_integration/test_programs](https://github.com/Dongdongshe/K-Scheduler/tree/main/afl_integration/test_programs)
+We provide 12 programs from Google FuzzBench to reproduce our results, [K-Scheduler/libfuzzer_integration/test_programs](https://github.com/Dongdongshe/K-Scheduler/tree/main/libfuzzer_integration/test_programs), [K-Scheduler/afl_integration/test_programs](https://github.com/Dongdongshe/K-Scheduler/tree/main/afl_integration/test_programs) and [K-Scheduler/qsym_integration/test_programs](https://github.com/Dongdongshe/K-Scheduler/tree/main/qsym_integration/test_programs)
 
 ### Run K-Scheduler on a new program
-Check tutorials at [K-Scheduler/libfuzzer_integration/test_programs](https://github.com/Dongdongshe/K-Scheduler/tree/main/afl_integration/build_example) and [K-Scheduler/afl_integration/test_programs](https://github.com/Dongdongshe/K-Scheduler/tree/main/afl_integration/build_example)
+Check tutorials at [K-Scheduler/libfuzzer_integration/build_example](https://github.com/Dongdongshe/K-Scheduler/tree/main/afl_integration/build_example), [K-Scheduler/afl_integration/build_example](https://github.com/Dongdongshe/K-Scheduler/tree/main/afl_integration/build_example) and [K-Scheduler/qsym_integration/build_example](https://github.com/Dongdongshe/K-Scheduler/tree/main/qsym_integration/build_example) 
 
 ### Contact
 Feel free to send me email about K-Scheduler. dongdong at cs.columbia.edu

@@ -1,4 +1,4 @@
-### Run K-Scheduler-based afl on an example (non wrapper)program libarchive
+### Run K-Scheduler-based afl on an example (non wrapper)program size
 1. Build llvm-11.0.1 following ``K-Scheduler/libfuzzer_integration/llvm_11.0.1/README.md``. You can skip this step if you have already build llvm-11.0.1.
 2. Install python3, wllvm, then install NetworKit using pip3
 3. Set up environment variable and build afl runtime.
@@ -12,7 +12,7 @@
     # build afl runtime library
     $CC -O2 -c -w -fPIC [path to K-Scheduler repo]/K-Scheduler/afl_integration/afl-2.52b_kscheduler/llvm_mode/afl-llvm-rt.o.c -o afl-llvm-rt.o
     ```
-4. Build libarchive.
+4. Build size.
     ```sh
     cd [path to K-Scheduler repo]/K-Scheduler/qsym_integration/build_example/
     # copy source code directory for afl build

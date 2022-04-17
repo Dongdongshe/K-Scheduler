@@ -4,7 +4,7 @@
 3. Set up environment variable and build afl runtime.
     ```sh
     # set clang as llvm-11.0.1
-    export PATH=[path to K-Scheduler repo]/K-Scheduler/libfuzzer_integration/llvm_11.0.1/build/bin
+    export PATH=[path to K-Scheduler repo]/K-Scheduler/libfuzzer_integration/llvm_11.0.1/build/bin:$PATH
     # use wllvm as default compiler, make sure you are using llvm-11.0.1
     export LLVM_COMPILER=clang 
     export CC=wllvm

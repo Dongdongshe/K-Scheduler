@@ -16,7 +16,7 @@ We first build binary in your host machine, then copy the binary into vagrant VM
     cp -r binutils_src build_afl
     cd build_afl
     # configure and build
-    CC=wllvm CXX=wllvm++ CXXFLAGS="-fsanitize-coverage=trace-pc-guard,no-prune -O2 -fsanitize=address" LDFLAGS=[ABSOLUTE PATH to K-Scheduler repo]/K-Scheduler/afl_integration/build_example/afl-llvm-rt.o ./configure && make -j
+    CC=wllvm CXX=wllvm++ CFLAGS="-fsanitize-coverage=trace-pc-guard,no-prune -O2 -fsanitize=address" CXXFLAGS="-fsanitize-coverage=trace-pc-guard,no-prune -O2 -fsanitize=address" LDFLAGS=[ABSOLUTE PATH to K-Scheduler repo]/K-Scheduler/afl_integration/build_example/afl-llvm-rt.o ./configure && make -j
     # extract whole-program bitcode
     extract-bc size
     # convert bitcode to llvm ll code

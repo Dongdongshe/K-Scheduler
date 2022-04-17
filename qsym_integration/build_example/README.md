@@ -1,4 +1,4 @@
-### Run K-Scheduler-based qsym on an example program libarchive
+### Run K-Scheduler-based qsym on an example program size
 We first build binary in your host machine, then copy the binary into vagrant VM. 
 1. Build llvm-11.0.1 following ``K-Scheduler/libfuzzer_integration/llvm_11.0.1/README.md``. You can skip this step if you have already build llvm-11.0.1.
 2. Install python3, wllvm, then install NetworKit using pip3
@@ -9,7 +9,7 @@ We first build binary in your host machine, then copy the binary into vagrant VM
     # use wllvm as default compiler, make sure you are using llvm-11.0.1
     export LLVM_COMPILER=clang
     ```
-4. Build libarchive in afl mode (for code coverage instrumentation).
+4. Build size in afl mode (for code coverage instrumentation).
     ```sh
     cd [path to K-Scheduler repo]/K-Scheduler/qsym_integration/build_example/
     # copy source code directory for afl build
@@ -41,7 +41,7 @@ We first build binary in your host machine, then copy the binary into vagrant VM
     mv border_edges ..
     mv graph_data_pack ..
     ```
-5. Build libarchive in vanilla mode (for concolic execution)
+5. Build size in vanilla mode (for concolic execution)
     ```sh
     cd [path to K-Scheduler repo]/K-Scheduler/qsym_integration/build_example/
     # copy source code directory for vanilla build

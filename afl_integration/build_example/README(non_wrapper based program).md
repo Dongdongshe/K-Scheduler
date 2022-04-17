@@ -7,8 +7,6 @@
     export PATH=[path to K-Scheduler repo]/K-Scheduler/libfuzzer_integration/llvm_11.0.1/build/bin:$PATH
     # use wllvm as default compiler, make sure you are using llvm-11.0.1
     export LLVM_COMPILER=clang
-     # Common compiler flags used in Google FuzzBench. Note that we add "-fsanitize-coverage=no-prune" to ensure a complete CFG intrumentation.
-    export CXXFLAGS="-fsanitize-coverage=trace-pc-guard,no-prune -O2 -fno-omit-frame-pointer -gline-tables-only -fsanitize=address,fuzzer-no-link -fsanitize-address-use-after-scope"
     # build afl runtime library
     $CC -O2 -c -w -fPIC [path to K-Scheduler repo]/K-Scheduler/afl_integration/afl-2.52b_kscheduler/llvm_mode/afl-llvm-rt.o.c -o afl-llvm-rt.o
     ```

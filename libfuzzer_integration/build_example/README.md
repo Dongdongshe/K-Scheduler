@@ -16,7 +16,9 @@
     rm -rf BUILD
     cp -r SRC BUILD 
     # configure and build harfbuzz
-    cd BUILD && ./autogen.sh && CCLD="$CXX $CXXFLAGS" ./configure --enable-static --disable-shared && make -j -C src fuzzing && cd ..
+    cd BUILD && ./autogen.sh
+    (cd ./src/hb-ucdn && CCLD="$CXX $CXXFLAGS" make)
+    CCLD="$CXX $CXXFLAGS" ./configure --enable-static --disable-shared && make -j -C src fuzzing && cd ..
     # build harfbuzz fuzzer wrapper
     $CXX $CXXFLAGS -c -std=c++11 -I BUILD/src/ BUILD/test/fuzzing/hb-fuzzer.cc -o BUILD/test/fuzzing/hb-fuzzer.o 
     # link harfbuzz fuzzer wrapper with LibFuzzer

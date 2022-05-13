@@ -13,8 +13,10 @@
     ```
 3. Build harfbuzz with K-Scheduler-based LibFuzzer following Google FuzzBench settings
     ```sh
-    rm -rf BUILD
-    cp -r SRC BUILD 
+    # download harfbuzz source code 
+    git clone https://github.com/behdad/harfbuzz.git
+    cd harfbuzz && git checkout f73a87d9a8c76a181794b74b527ea268048f78e3
+    cd .. && cp -r harfbuzz BUILD
     # configure and build harfbuzz
     cd BUILD && ./autogen.sh
     (cd ./src/hb-ucdn && CCLD="$CXX $CXXFLAGS" make)
@@ -22,7 +24,7 @@
     # build harfbuzz fuzzer wrapper
     $CXX $CXXFLAGS -c -std=c++11 -I BUILD/src/ BUILD/test/fuzzing/hb-fuzzer.cc -o BUILD/test/fuzzing/hb-fuzzer.o 
     # link harfbuzz fuzzer wrapper with LibFuzzer
-    $CXX $CXXFLAGS -std=c++11 -I BUILD/src/ BUILD/test/fuzzing/hb-fuzzer.o BUILD/src/.libs/libharfbuzz-fuzzing.a -fsanitize=fuzzer -lglib-2.0 -o harfbuzz-1.3.2-fsanitize_fuzzer_kscheduler
+    $CXX $CXXFLAGS -std=c++11 -I BUILD/src/ BUILD/test/fuzzing/hb-fuzzer.o BUILD/src/.libs/libharfbuzz-fuzzing.a -fsanitize=fuzzer -o harfbuzz-1.3.2-fsanitize_fuzzer_kscheduler
     ```
 4. Construct inter-procedural CFG for harfbuzz
     ```sh

@@ -66,3 +66,5 @@
     # run libfuzzer_kscheduler
     ./afl-fuzz_kscheduler -i seeds/ -o afl_out_cent -d -m none ./harfbuzz_afl_asan @@
     ```
+### Run K-Scheduler-based afl on a non-wrapper based program like Binutils.
+Please check tutorial at https://github.com/Dongdongshe/K-Scheduler/blob/main/afl_integration/build_example/README(non_wrapper%20based%20program).md

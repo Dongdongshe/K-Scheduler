@@ -9,6 +9,7 @@
     export CC=wllvm
     export CXX=wllvm++
     # Common compiler flags used in Google FuzzBench. Note that we add "-fsanitize-coverage=no-prune" to ensure a complete CFG intrumentation.
+    export CFLAGS="-O2 -fno-omit-frame-pointer -gline-tables-only -fsanitize=address,fuzzer-no-link -fsanitize-coverage=no-prune -fsanitize-address-use-after-scope"
     export CXXFLAGS="-O2 -fno-omit-frame-pointer -gline-tables-only -fsanitize=address,fuzzer-no-link -fsanitize-coverage=no-prune -fsanitize-address-use-after-scope"
     ```
 3. Build harfbuzz with K-Scheduler-based LibFuzzer following Google FuzzBench settings

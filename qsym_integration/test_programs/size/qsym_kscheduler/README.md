@@ -7,7 +7,7 @@
     # reset signal file for graph computation module
     echo 0 > signal
     # run qsym concolic execution engine
-    python2 ./run_qsym_kscheduler.py -a afl-slave -o output -n qsym -- ./size @@
+    python2 ./run_qsym_kscheduler.py -a afl-slave -o output -n qsym -- ./size_vanilla @@
     ```
 2. Open another terminal to run graph computation module:
     ```sh

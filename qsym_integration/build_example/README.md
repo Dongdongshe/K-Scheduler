@@ -62,5 +62,5 @@ We first build binary in your host machine, then copy the binary into vagrant VM
     # reset signal file for graph computation module
     echo 0 > signal
     # run qsym concolic execution engine
-    python2 ./run_qsym_kscheduler.py -a afl-slave -o output -n qsym -- ./size @@
+    python2 ./run_qsym_kscheduler.py -a afl-slave -o output -n qsym -- ./size_vanilla @@
     ```

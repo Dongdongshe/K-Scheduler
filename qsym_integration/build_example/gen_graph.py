@@ -264,10 +264,16 @@ if __name__ == '__main__':
     # add backedge to graph
     for parent, child in global_back_edge:
         global_graph[parent].append(child)
+        global_reverse_graph[child].append(parent)
 
     with open("child_node", "w") as f:
         for key in sorted(global_graph.keys()):
             tmp = ' '.join([str(key+1)] + [str(ele+1) for ele in global_graph[key]]) + '\n'
+            f.write(tmp)
+
+    with open("parent_node", "w") as f:
+        for key in sorted(global_reverse_graph.keys()):
+            tmp = ' '.join([str(key)] + [str(ele) for ele in global_reverse_graph[key]]) + '\n'
             f.write(tmp)
 
     border_edges = []

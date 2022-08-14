@@ -1577,7 +1577,7 @@ static void cull_queue(void) {
     
     char file_buffer[4096 + 64]; 
     int buffer_count = 0 ;
-    for (int i = 0; i < num_edge; i++){
+    for (int i = 0; i < (num_edge + 2); i++){
       if (unlikely(virgin_bits[i] != 0xff)){
         buffer_count += sprintf(&file_buffer[buffer_count], "%d ", i);
         if (buffer_count >= 4096){
@@ -2219,14 +2219,69 @@ static void load_auto(void) {
 
 }
 
+#ifdef __x86_64__
 /* increment hit bits by 1 for every element of trace_bits that has been hit.
  effectively counts that one input has hit each element of trace_bits */
 static inline void increment_hit_bits(){
-  for (int i = 0; i < num_edge; i++){
+  /*
+  for (int i = 0; i < (num_edge+2); i++){
     if (unlikely(trace_bits[i]) && (hit_bits[i] < ULONG_MAX))
       hit_bits[i]++;
   }
+  */
+  u32 total_iters = ((num_edge + 2 + 7 ) >> 3);
+  u64 *current = (u64 *)trace_bits;
+  for (u32 i = 0; i < total_iters; ++i){ 
+    if (unlikely(*current)){
+      u8 *cur = (u8 *)current;
+      u32 base_idx = i * 8 ;
+      if (cur[0])
+        hit_bits[base_idx]++;
+      if (cur[1])
+        hit_bits[base_idx+1]++;
+      if (cur[2])
+        hit_bits[base_idx+2]++;
+      if (cur[3])
+        hit_bits[base_idx+3]++;
+      if (cur[4])
+        hit_bits[base_idx+4]++;
+      if (cur[5])
+        hit_bits[base_idx+5]++;
+      if (cur[6])
+        hit_bits[base_idx+6]++;
+      if (cur[7])
+        hit_bits[base_idx+7]++;
+    }
+    current++;
+  }
 }
+#else
+static inline void increment_hit_bits(){
+  /*
+  for (int i = 0; i < (num_edge+2); i++){
+    if (unlikely(trace_bits[i]) && (hit_bits[i] < ULONG_MAX))
+      hit_bits[i]++;
+  }
+  */
+  u32 total_iters = ((num_edge + 2 + 3 ) >> 2);
+  u32 *current = (u32 *)trace_bits;
+  for (u32 i = 0; i < total_iters; ++i){ 
+    if (unlikely(*current)){
+      u8 *cur = (u8 *)current;
+      u32 base_idx = i * 8 ;
+      if (cur[0])
+        hit_bits[base_idx]++;
+      if (cur[1])
+        hit_bits[base_idx+1]++;
+      if (cur[2])
+        hit_bits[base_idx+2]++;
+      if (cur[3])
+        hit_bits[base_idx+3]++;
+    }
+    current++;
+  }
+}
+#endif /* ^__x86_64__ */
 
 /* Destroy extras. */
 

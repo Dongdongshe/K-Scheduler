@@ -273,7 +273,7 @@ if __name__ == '__main__':
 
     with open("parent_node", "w") as f:
         for key in sorted(global_reverse_graph.keys()):
-            tmp = ' '.join([str(key)] + [str(ele) for ele in global_reverse_graph[key]]) + '\n'
+            tmp = ' '.join([str(key+1)] + [str(ele+1) for ele in global_reverse_graph[key]]) + '\n'
             f.write(tmp)
 
     border_edges = []

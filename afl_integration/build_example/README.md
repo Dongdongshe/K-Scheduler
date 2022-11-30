@@ -1,4 +1,6 @@
-### Run K-Scheduler-based afl on an example program harfbuzz
+### Common binary (not in google fuzzbench setting) build example: run K-Scheduler-based afl on Binutils (e.g., readelf, objdump and size)
+please check the detailed tutorial at https://github.com/Dongdongshe/K-Scheduler/blob/main/afl_integration/build_example/README(non_wrapper%20based%20program).md
+### Google Fuzzbench build example: run K-Scheduler-based afl on harfbuzz
 1. Build llvm-11.0.1 following ``K-Scheduler/libfuzzer_integration/llvm_11.0.1/README.md``. You can skip this step if you have already build llvm-11.0.1.
 2. Build K-Scheduler-based afl following ``K-Scheduler/afl_integration/afl-2.52b_kscheduler/README.md``.
 3. Set up environment variable and build afl runtime.

@@ -1,6 +1,6 @@
 
 # K-Scheduler: Effective Seed Scheduling for Fuzzing with Graph Centrality Analysis (IEEE S&P'22)
-A generic seed scheduler for fuzzers (LibFuzzer and AFL) and concolic execution engine (QSYM). Check the following [1 minute video](https://www.youtube.com/watch?v=VVZZpQiIsm4) to get a sense about how K-Scheduler works. Read our [paper](https://arxiv.org/abs/2203.12064) and [slides](https://github.com/Dongdongshe/K-Scheduler/blob/main/oakland22_kscheduler.pptx) for more details.
+A universal seed scheduler for fuzzers (LibFuzzer and AFL) and concolic execution engine (QSYM). Check the following [1 minute video](https://www.youtube.com/watch?v=VVZZpQiIsm4) to get a sense about how K-Scheduler works. Read our [paper](https://arxiv.org/abs/2203.12064) and [slides](https://github.com/Dongdongshe/K-Scheduler/blob/main/oakland22_kscheduler.pptx) for more details.
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=VVZZpQiIsm4
 " target="_blank"><img src="http://img.youtube.com/vi/VVZZpQiIsm4/0.jpg" 

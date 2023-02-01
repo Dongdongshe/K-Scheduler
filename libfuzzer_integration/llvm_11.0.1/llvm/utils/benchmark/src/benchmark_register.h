@@ -1,8 +1,8 @@
 #ifndef BENCHMARK_REGISTER_H
 #define BENCHMARK_REGISTER_H
 
-#include <vector>
 #include <limits>
+#include <vector>
 
 #include "check.h"
 
